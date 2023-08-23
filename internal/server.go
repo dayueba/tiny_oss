@@ -44,6 +44,9 @@ func NewApp() *App {
 		// 接入层接受到数据之后，将数据切割为若干个block，每个block分配一个id(先不管哪里来的)。以blockid为主键，将数据写入到data表中
 		// 分配一个object_id(先忽略从哪里分配)，将步骤1中的blockid和数据表的表名压缩到一段pb中，然后以object_id为主键，将这段pb写入到object表中
 		// 以bucketName和s3文件名组成主键，将object_id写入到name表中
+		// 路由层收到key之后， hash(key) % 2233 得到一个[0, 2232]之间的数字，比如X， 即shardX。
+		// 查询路由MySQL，得到shardX所对应后端的数据存储层MySQL服务器的地址。
+		// 与数据存储层MySQL进行通信，获取数据。
 
 		c.String(http.StatusOK, "Hello %s %s", bucketName, objectName)
 	})

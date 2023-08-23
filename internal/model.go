@@ -15,4 +15,10 @@ type Object struct {
 type Data struct {
 	blockId int64
 	data    []byte
+	shardId int8
+}
+
+type Shard struct {
+	key  int8
+	name string // mysql name
 }
