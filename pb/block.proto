@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package pb;
+
+option go_package = "tiny_oss/pb;pb";
+
+message Block {
+  string table_name = 1; //数据表名
+  int64 size = 2; //block长度
+  int64 block_id = 3;
+}
+
+message DataBlocks {
+  repeated Block blocks = 1;
+}
