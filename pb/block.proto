@@ -5,7 +5,7 @@ package pb;
 option go_package = "tiny_oss/pb;pb";
 
 message Block {
-  string table_name = 1; //数据表名
+  string table_name = 1; //为了便于后续的扩展，我们把数据表的表名也放在pb结构中，这样可以使用一张或多张数据表
   int64 size = 2; //block长度
   int64 block_id = 3;
 }

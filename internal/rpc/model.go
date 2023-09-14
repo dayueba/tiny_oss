@@ -1,18 +1,18 @@
-package internal
+package rpc
 
-type Name struct {
+type NameModel struct {
 	bucketName string
 	// 用户key
 	key      string
 	objectId int64
 }
 
-type Object struct {
+type ObjectModel struct {
 	objectId int64
 	blocks   []byte //blockid列表 用PB压缩(DataBocks) binary类型
 }
 
-type Data struct {
+type DataModel struct {
 	blockId int64
 	data    []byte
 	shardId int8
